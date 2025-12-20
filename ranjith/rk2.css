@@ -1,0 +1,80 @@
+:root{
+--primary:#0a3d62;
+--secondary:#1e90ff;
+--active-green:#28a745;
+--bg-light:#f5f7fa;
+--bg-dark:#121212;
+--text-light:#222;
+--text-dark:#f5f7fa;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI, Arial, sans-serif;}
+body,html{height:100%;display:flex;flex-direction:column;background:var(--bg-light);color:var(--text-light);transition:0.3s;}
+.hidden{display:none;}
+header{position:fixed;top:0;width:100%;background:white;box-shadow:0 2px 10px rgba(0,0,0,.1);z-index:1000;transition:0.3s;opacity:0;pointer-events:none;}
+.navbar{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:15px;}
+.logo{font-size:22px;font-weight:bold;color:var(--primary);cursor:pointer;}
+.nav-links{display:flex;gap:15px;align-items:center;}
+.nav-links a{text-decoration:none;color:var(--dark);font-weight:500;cursor:pointer;padding:5px 10px;border-radius:5px;transition:0.3s;}
+.nav-links a:hover{background-color:#d0e7ff;}
+.nav-links a.active{background-color:var(--active-green);color:white;}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;}
+.hamburger div{width:25px;height:3px;background:var(--dark);transition:0.3s;}
+.dark-toggle{cursor:pointer;font-size:20px;transition:0.3s;padding:5px;}
+.logout-btn{background:var(--primary);color:white;padding:5px 10px;border-radius:5px;cursor:pointer;font-size:14px;transition:0.3s;margin-left:10px;}
+.logout-btn:hover{background:var(--secondary);}
+.pages-container{flex:1;overflow:auto;scroll-behavior:smooth;position:relative;}
+.page{padding:120px 20px 60px;display:none;opacity:0;transition:opacity 0.5s ease;}
+.page.active{display:block;opacity:1;}
+.hero{background:linear-gradient(to right,var(--primary),var(--secondary));color:white;padding:100px 30px;border-radius:20px;text-align:center;transition:all 0.3s;}
+.hero h1{font-size:40px;}
+.hero p{max-width:750px;margin:20px auto;font-size:18px;}
+.expand-box{background:white;margin-top:40px;padding:30px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,.1);cursor:pointer;transition:0.4s;}
+.expand-box:hover{transform:scale(1.02);}
+.expand-box h2{color:var(--primary);}
+.expand-content{display:none;margin-top:15px;}
+.expand-box.active{transform:scale(1.05);}
+.expand-box.active .expand-content{display:block;animation:fade .4s ease;}
+@keyframes fade{from{opacity:0; transform:translateY(15px);} to{opacity:1; transform:translateY(0);}}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;margin-top:30px;}
+.card{background:white;padding:20px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,.1);cursor:pointer;transition:.4s;min-height:150px;border:2px solid transparent;}
+.card:hover{border-color:#1e90ff;background-color:#f0f8ff;}
+.card h3{color:var(--primary);}
+.card .full{display:none;margin-top:10px;font-size:14px;}
+.card.active{transform:scale(1.03);box-shadow:0 6px 20px rgba(0,0,0,.2);background-color:#d0e7ff;border-color:#0a3d62;}
+.card.active .full{display:block;}
+.contact-box{background:white;padding:30px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,.1);margin-top:30px;}
+.contact-box form{display:flex;flex-direction:column;gap:15px;}
+.contact-box input, .contact-box textarea{padding:10px;border:1px solid #ccc;border-radius:5px;font-size:16px;width:100%;transition:0.3s;}
+.contact-box input:focus, .contact-box textarea:focus{border-color:var(--primary);box-shadow:0 0 5px var(--secondary);}
+.contact-box button{background:var(--primary);color:white;border:none;padding:12px;border-radius:5px;cursor:pointer;font-size:16px;transition:0.3s;}
+.contact-box button:hover{background:var(--secondary);}
+.about-content{background:white;padding:40px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,.1);text-align:center;}
+.about-content h2{color:var(--primary);margin-bottom:20px;}
+.about-content p{font-size:16px;margin-bottom:15px;line-height:1.5;}
+.social-links{display:flex;flex-direction:column;gap:15px;align-items:center;margin-top:20px;}
+.social-links a{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--primary);font-weight:500;font-size:16px;transition:0.3s;}
+.social-links a:hover{color:var(--active-green);}
+.social-links img{width:24px;height:24px;}
+.auth-container{max-width:400px;margin:80px auto;background:white;padding:30px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,.1);opacity:0;transform:translateY(30px);animation:fadeInUp 1s forwards;}
+@keyframes fadeInUp{to{opacity:1;transform:translateY(0);}}
+.auth-container h2{text-align:center;color:var(--primary);margin-bottom:20px;}
+.auth-container form{display:flex;flex-direction:column;gap:15px;}
+.auth-container input{padding:10px;border:1px solid #ccc;border-radius:5px;font-size:16px;width:100%;transition:0.3s;}
+.auth-container input:focus{border-color:var(--secondary);box-shadow:0 0 5px var(--secondary);}
+.auth-container button{background:var(--primary);color:white;border:none;padding:12px;border-radius:5px;cursor:pointer;font-size:16px;transition:0.3s;}
+.auth-container button:hover{background:var(--secondary);transform:scale(1.05);}
+.auth-switch{text-align:center;margin-top:10px;font-size:14px;cursor:pointer;color:var(--secondary);}
+.auth-switch:hover{text-decoration:underline;}
+.login-msg{color:var(--active-green);text-align:center;margin-top:10px;font-weight:600;}
+.validation-msg{font-size:13px;}
+.popup-msg{position:fixed;top:20px;right:20px;background:var(--active-green);color:white;padding:10px 15px;border-radius:5px;box-shadow:0 2px 10px rgba(0,0,0,.2);opacity:0;transition:opacity 0.5s;z-index:2000;}
+footer{background:#111;color:white;text-align:center;padding:15px;margin-top:auto;}
+body.dark{background:var(--bg-dark);color:var(--text-dark);}
+body.dark .hero,.dark .expand-box,.dark .card,.dark .contact-box,.dark .about-content,.dark .auth-container{background:#1f1f1f;color:white;box-shadow:0 4px 15px rgba(255,255,255,.05);}
+body.dark .nav-links a{color:white;}
+body.dark .nav-links a.active{background-color:var(--active-green);color:white;}
+body.dark .nav-links a:hover{background-color:#444;}
+body.dark .contact-box input,.dark .contact-box textarea,.dark .auth-container input{background:#333;color:white;border:1px solid #555;}
+body.dark .social-links a{color:white;}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid{grid-template-columns:1fr;}.hero h1{font-size:32px;}.hero p{font-size:16px;}.nav-links{position:absolute;top:60px;right:0;background:white;flex-direction:column;width:200px;padding:20px;display:none;}.nav-links a{margin:10px 0;}.nav-links.show{display:flex;}.hamburger{display:flex;}}

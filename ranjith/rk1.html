@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RK Modern Web Interface</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="rk2.css">
+</head>
+<body>
+
+<header>
+<div class="navbar">
+<div class="logo" onclick="showPage('home')">RK</div>
+<div class="hamburger" onclick="toggleHamburger()"><div></div><div></div><div></div></div>
+<div class="nav-links">
+<a onclick="showPage('home')">Home</a>
+<a onclick="showPage('about')">About</a>
+<a onclick="showPage('skills')">Skills</a>
+<a onclick="showPage('contact')">Contact</a>
+<span class="dark-toggle" onclick="toggleDarkMode()">☀️</span>
+<span class="logout-btn" onclick="logout()">Logout</span>
+</div>
+</div>
+</header>
+
+<div class="pages-container">
+<div class="popup-msg" id="popupMsg"></div>
+
+<!-- LOGIN PAGE -->
+<div class="page active" id="loginPage">
+<div class="auth-container" style="background-image:url('https://www.transparenttextures.com/patterns/cubes.png');background-size:cover;">
+<h2>Login</h2>
+<form onsubmit="loginSubmit(event)" autocomplete="off">
+<input type="text" id="loginUser" placeholder="Username" required autocomplete="off">
+<input type="password" id="loginPass" placeholder="Password" required autocomplete="new-password">
+<button type="submit">Login</button>
+<p class="login-msg" id="loginMsg"></p>
+</form>
+<p class="auth-switch" onclick="showPage('registerPage')">Don't have an account? Register</p>
+</div>
+</div>
+
+<!-- REGISTER PAGE -->
+<div class="page" id="registerPage">
+<div class="auth-container">
+<h2>Register</h2>
+<form onsubmit="registerSubmit(event)" autocomplete="off">
+<input type="text" id="regUser" placeholder="Username" required autocomplete="off">
+<input type="email" id="regEmail" placeholder="Email" required autocomplete="off">
+<input type="password" id="regPass" placeholder="Password" required oninput="validatePassword(this,'regPassMsg')" autocomplete="new-password">
+<p class="validation-msg" id="regPassMsg"></p>
+<button type="submit">Register</button>
+<p class="login-msg" id="regMsg"></p>
+</form>
+<p class="auth-switch" onclick="showPage('loginPage')">Already have an account? Login</p>
+</div>
+</div>
+
+<!-- HOME PAGE -->
+<div class="page" id="home">
+<div class="container">
+<div class="hero">
+<h1>RK Modern Web Interface</h1>
+<p>Interactive web project showcasing HTML, CSS, JavaScript skills with responsive design.</p>
+</div>
+<div class="expand-box" onclick="toggleExclusiveExpand(this)">
+<h2>Why Choose This Project?</h2>
+<p>Demonstrates practical frontend skills.</p>
+<div class="expand-content">
+<p>Responsive layout, interactive content, accordion sections using HTML, CSS, JS.</p>
+</div>
+</div>
+<div class="expand-box" onclick="toggleExclusiveExpand(this)">
+<h2>Project Features</h2>
+<p>Frontend design and interaction.</p>
+<div class="expand-content">
+<p>Smooth animations, expandable cards, single-page layout, responsive hero, professional styling.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div class="page" id="about">
+<div class="container">
+<div class="about-content">
+<h2>About Me</h2>
+<p>I am a passionate Computer Science student learning web technologies.</p>
+<p>This project showcases interactive UI and modern web development practices.</p>
+<p><strong>Follow me for updates:</strong></p>
+<div class="social-links">
+<a href="https://www.linkedin.com/in/ranjith-kumar-14b2222b0" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"> RK LinkedIn</a>
+<a href="https://github.com/ranjith746" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"> RK GitHub</a>
+<a href="https://www.instagram.com/ranjith_7349kumar" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png"> RK Insta</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SKILLS PAGE -->
+<div class="page" id="skills">
+<div class="container">
+<h2>Skills / Services</h2>
+<div class="grid">
+<div class="card" onclick="toggleExclusiveCard(this)"><h3>HTML</h3><p>Web Structure</p><div class="full"><p>Semantic and accessible HTML for structured pages.</p></div></div>
+<div class="card" onclick="toggleExclusiveCard(this)"><h3>CSS</h3><p>Styling & Layout</p><div class="full"><p>Responsive design, flexbox, grid, animations.</p></div></div>
+<div class="card" onclick="toggleExclusiveCard(this)"><h3>JavaScript</h3><p>Interactivity</p><div class="full"><p>Dynamic content, event handling, interactive UI components.</p></div></div>
+<div class="card" onclick="toggleExclusiveCard(this)"><h3>Bootstrap</h3><p>Framework</p><div class="full"><p>Creating responsive layouts faster using Bootstrap components.</p></div></div>
+<div class="card" onclick="toggleExclusiveCard(this)"><h3>ReactJS</h3><p>Frontend Library</p><div class="full"><p>Building dynamic user interfaces with reusable components.</p></div></div>
+<div class="card" onclick="toggleExclusiveCard(this)"><h3>NodeJS</h3><p>Backend</p><div class="full"><p>Server-side logic, APIs, and database connectivity using NodeJS.</p></div></div>
+</div>
+</div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div class="page" id="contact">
+<div class="container">
+<div class="contact-box">
+<h2>Contact Me</h2>
+<form onsubmit="submitForm(event)">
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="email" id="email" placeholder="Your Email" required>
+<textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+</div>
+</div>
+</div>
+
+<footer>
+<p>&copy; 2025 RK Modern Web Interface. All Rights Reserved.</p>
+</footer>
+
+<script src="rk3.js"></script>
+</body>
+</html>
