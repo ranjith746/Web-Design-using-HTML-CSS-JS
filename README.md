@@ -27,11 +27,11 @@ The project runs completely on the client side and does not require any backend 
 ## 📁 Project Structure
 
 ```text
-├── rk1.html
+├── index.html
 ├── css/
-│   └── rk2.css
+│   └── style.css
 ├── js/
-│   └── rk3.js
+│   └── script.js
 └── README.md
 
 
